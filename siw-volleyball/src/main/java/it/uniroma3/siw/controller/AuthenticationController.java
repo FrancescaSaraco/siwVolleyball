@@ -190,8 +190,9 @@ public class AuthenticationController {
 			credenziali.setUser(utente); 
 			credentialsService.saveCredentials(credenziali);
 			if(credenziali.getRole().equals(Credenziali.PRESIDENTE_ROLE)) {
-				model.addAttribute("presidente", utente);
-				return "presidente/registrationSuccessfulPresidente.html";
+				//model.addAttribute("presidente", utente);
+				//return "presidente/registrationSuccessfulPresidente.html";
+				return "formRegisterUtente.html";
 			}
 			model.addAttribute("cred", credenziali);
 			model.addAttribute("utente", utente);

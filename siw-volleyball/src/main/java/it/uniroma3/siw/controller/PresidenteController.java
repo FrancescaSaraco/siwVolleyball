@@ -107,26 +107,30 @@ public class PresidenteController {
 		
 		//Credenziali credenziali = this.credenzialiService.getCredentials(username);
 		
+		
 		Utente utente = credenziali.getUser();
 		
-		Presidente corrente = this.presidenteService.findByUtente(utente);
-		
+		Presidente corrente = this.presidenteService.findByUtente(utente);	
 		Squadra squadra = corrente.getSquadra();
-		
-		
 		Tesseramento tesseramento = new Tesseramento();
-		tesseramento.setSquadra(squadra);
-		squadra.getTesseramenti().add(tesseramento);
 		
-		
-		model.addAttribute("tesseramento", tesseramento);
-		model.addAttribute("disponibili", this.tesseramentoService.findRimasti());
-		model.addAttribute("squadra", squadra);
-		return "presidente/formNewTesseramento.html";
+		if(squadra == null) {
+			return "presidente/nessunaSquadra.html";
+		} else {
+			tesseramento.setSquadra(squadra);
+			squadra.getTesseramenti().add(tesseramento);
+			
+			
+			model.addAttribute("tesseramento", tesseramento);
+			model.addAttribute("disponibili", this.tesseramentoService.findRimasti());
+			model.addAttribute("squadra", squadra);
+			return "presidente/formNewTesseramento.html";
+		}	
 	}
 	
 	@PostMapping("/presidente/nuovoTesseramento/{idSquadra}")
 	public String formNewTesseramento(@ModelAttribute("tesseramento") Tesseramento tesseramento, @RequestParam("giocatore") Long id, @PathVariable("idSquadra") Long idS,   Model model) {
+		
 		tesseramento.setGiocatore(this.giocatoreRepository.findById(id).get());
 		tesseramento.setSquadra(this.squadraRepository.findById(idS).get());
 		this.tesseramentoService.save(tesseramento);
@@ -143,10 +147,14 @@ public class PresidenteController {
 		Presidente corrente = this.presidenteService.findByUtente(utente);
 		Squadra squadra = corrente.getSquadra();
 		
-		List<Tesseramento> tesseramentiSquadra = squadra.getTesseramenti();
-		model.addAttribute("tesseramenti", tesseramentiSquadra);
-		model.addAttribute("squadra", squadra);
-		return "presidente/cancellaGiocatore.html";
+		if(squadra == null) {
+			return "presidente/nessunaSquadra.html";
+		} else {
+			List<Tesseramento> tesseramentiSquadra = squadra.getTesseramenti();
+			model.addAttribute("tesseramenti", tesseramentiSquadra);
+			model.addAttribute("squadra", squadra);
+			return "presidente/cancellaGiocatore.html";
+		}
 	}
 	
 	@PostMapping("/presidente/cancellaTesseramento/{idSquadra}") 

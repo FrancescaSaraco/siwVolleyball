@@ -34,19 +34,19 @@
 		<p></p>
 		<div class="itemLogin">
 			<label>Nome: </label>
-			<span><input type="text" placeholder="Nome" th:field="${utente.nome}" /></span>
+			<span><input required type="text" placeholder="Nome" th:field="${utente.nome}" /></span>
 				<span th:if="${#fields.hasErrors('utente.nome')}" th:errors="*{utente.nome}"></span>
 		</div>
 		<p></p>
 		<div class="itemLogin">
 			<label>Cognome: </label>
-			<span><input type="text" placeholder="Cognome" th:field="${utente.cognome}" /></span>
+			<span><input required type="text" placeholder="Cognome" th:field="${utente.cognome}" /></span>
 			<span th:if="${#fields.hasErrors('utente.cognome')}" th:errors="*{utente.cognome}"></span>
 		</div>
 		<p></p>
 		<div class="itemLogin">
 			<label>Email: </label>
-			<span><input type="text" placeholder="Email" th:field="${utente.email}" /></span>
+			<span><input required type="text" placeholder="Email" th:field="${utente.email}" /></span>
 			<span th:if="${#fields.hasErrors('utente.email')}" th:errors="*{utente.email}"></span>
 		</div>
 		
@@ -55,13 +55,13 @@
 		<p></p>
 		<div class="itemLogin">
 			<label>Username: </label>
-			<span><input type="text" placeholder="Username" th:field="${credenziali.username}" /></span>
+			<span><input required type="text" placeholder="Username" th:field="${credenziali.username}" /></span>
 			<span th:if="${#fields.hasErrors('credenziali.username')}" th:errors="*{credenziali.username}"></span>
 		</div>
 		<p></p>
 		<div class="itemLogin">
 			<label>Password: </label>
-			<span><input type="password" placeholder="Password" th:field="${credenziali.password}" /></span>
+			<span><input required type="password" placeholder="Password" th:field="${credenziali.password}" /></span>
 			<span th:if="${#fields.hasErrors('credenziali.password')}" th:errors="*{credenziali.password}"></span>
 		</div>
 		

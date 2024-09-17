@@ -74,19 +74,20 @@ public class SquadraController {
 		Squadra squadraVecchia = this.squadraService.findById(id).get();
 		Presidente nuovo = this.presidenteService.findByCodiceFiscale(codiceFiscale);
 		Presidente vecchio = squadraVecchia.getPresidente();
+		 
+		// devo aggiornare il presidente 
+		// se quello vecchio non c'era allora metti quello nuovo direttamente
 		
-		/*if((nuovo != null) && !nuovo.equals(squadraVecchia.getPresidente())) {
-			if(vecchio != null) {
-				vecchio.setSquadra(null);
-			}
+		if(nuovo != null) {
+			
+			vecchio.setSquadra(null);
+		
 			squadraVecchia.setPresidente(nuovo);
 			nuovo.setSquadra(squadraVecchia);
 			
-		}*/
-		
-		// devo aggiornare il presidente 
-		// se quello vecchio non c'era allora metti quello nuovo direttamente
-		if(vecchio == null) {
+			
+			
+		/*if(vecchio == null) {
 			squadraVecchia.setPresidente(nuovo);
 			nuovo.setSquadra(squadraVecchia);
 		} else {
@@ -94,9 +95,9 @@ public class SquadraController {
 			vecchio.setSquadra(null);
 			squadraVecchia.setPresidente(nuovo);
 			nuovo.setSquadra(squadraVecchia);
+		}*/
+		
 		}
-		
-		
 		
 		if(!squadra.getNome().equals(squadraVecchia.getNome())) {
 			squadraVecchia.setNome(squadra.getNome());

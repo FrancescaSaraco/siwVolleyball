@@ -9,7 +9,7 @@
 		<div id="loginMenu">
 			<img src="/images/logo1.png" alt="Logo" class="logo">	
 		<h1 class="custom-titleForm"> Aggiungi un nuovo tesseramento nella squadra <a th:text="${tesseramento.squadra.nome}"> </a> </h1>
-			
+		
 			<form th:action="@{'/presidente/nuovoTesseramento/' + ${tesseramento.squadra.id}}" method="POST">
 				<div th:object="${tesseramento}">
 				<div class="itemForm">
