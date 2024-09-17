@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>Registrazione effettuata</title>
+  <link rel="stylesheet" href="/css/style.css" />
+</head>
+
+<body>	
+	
+	<h3> Ti sei registrato come nuovo Presidente!
+		Ecco la Registrazione del Presidente:
+	</h3>
+	<div>
+		<strong>Nome: </strong>
+		<span th:text="${presidente.utente.nome}"></span>
+	</div>
+	<div>
+		<strong>Cognome: </strong>
+		<span th:text="${presidente.utente.cognome}"></span>
+	</div>
+	<div>
+		<strong>Email: </strong>
+		<span th:text="${presidente.utente.email}"></span>
+	</div>
+	
+	
+	<form th:action="@{/}" method="get">
+		<button type="submit">Torna alla HomePage</button>
+	</form>
+	
+</body>
+</html>

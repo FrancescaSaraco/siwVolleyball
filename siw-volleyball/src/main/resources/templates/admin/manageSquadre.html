@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title> Squadre </title>
+		<link rel="stylesheet" href="/css/stile.css" />
+	</head>
+	<body background="/images/sfondoRosso.jpg" style="background-size: cover;">
+		<div class="login-container">	
+		<div id="loginMenu">
+			<img src="/images/logo1.png" alt="Logo" class="logo">	
+		<h1 class="custom-titleForm"> Squadre nel sistema </h1>
+			<div th:if="${squadre.isEmpty()}"> 
+				<p>
+					Non c'e' nessuna squadra nel sistema
+				</p>
+				<p>
+					<a href="/admin/formNewSquadra"> Aggiungine una! </a> 
+				</p>
+			</div>
+			<ul>
+				<div class="signup-text" style="font-family: Arial, Helvetica, sans-serif; font-size: 19px;">
+				<li th:each="squadra : ${squadre}">
+					<div th:text="${squadra.nome} + ' ' + ' (' + ${squadra.annoFondazione} + ') ' + ', presso: ' + ${squadra.indirizzo}">
+						FreeClub, presso via Ticino Ardea, Anno di fondazione: [10/07/2003]
+					</div>
+					
+					<a th:href="@{'/admin/formAggiornaSquadra' + '/' + ${squadra.id}}"
+					           th:text="' Aggiorna dati'"></a> 
+				</li>
+				</div>
+			</ul>
+			<div class="signup-text" style="margin-top: 80%;">
+			<a th:href="@{'/'}" th:text=" 'Torna alla HomePage' " ></a>
+			</div>
+		</div>
+		</div>		
+	</body>
+</html>

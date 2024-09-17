@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>
+		Cancella tesseramento
+	</title>
+	<link rel="stylesheet" href="/css/stile.css" />
+</head>
+
+<body background="/images/sfondoRosso.jpg" style="background-size: cover;">
+	<div class="login-container">
+	<div id="loginMenu">
+		<img src="/images/logo1.png" alt="Logo" class="logo">	
+	<h1 class="custom-titleForm"> Seleziona il giocatore da eliminare </h1> 
+		<form th:action="@{'/presidente/cancellaTesseramento/' + ${squadra.id}}" method="post">
+			
+			<h2> seleziona il giocatore: </h2>
+			<div class="select-wrapper">
+				<select name="idTesseramento" class="styled-select"> 
+							<option value=""> seleziona un giocatore </option>
+								<span th:each="tesseramento : ${tesseramenti}">
+							<option th:value="*{tesseramento.id}"> 
+							<span th:text="*{tesseramento.giocatore.nome} + ' ' + *{tesseramento.giocatore.cognome} + ' ' + *{tesseramento.inizioTesseramento} + ' - ' + *{tesseramento.fineTesseramento}"> 
+								Nome Giocatore: </span> 
+								</option>
+								</span>
+								</select>
+			</div>
+			<div>
+				<span> <button class="button-confirm" type="submit"> Conferma le modifiche </button> </span>
+			</div>		
+			<div class="signup-text" style="margin-top: 10%;">
+				<a th:href="@{'/'}" th:text="'Torna alla HomePage'" ></a>
+			</div>
+		</form>
+	</div>
+	</div>
+</body>
+
+</html>
+

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>
+		Registration Page
+	</title>
+	<link rel="stylesheet" href="/css/stile.css" />
+</head>
+
+<body background="/images/sfondoRosso.jpg" style="background-size: cover;">
+	<div class="login-container">
+	<div id="loginMenu">
+		<img src="/images/logo1.png" alt="Logo" class="logo">
+	<h1 style="margin-top: -7%;">Registrazione nuovo utente</h1>
+	
+	<div>
+	<form th:action="@{/register}" method="POST">
+		
+		
+	<div th:object="${utente}">	
+		
+	<div th:if="${#fields.hasGlobalErrors()}">
+		 <li th:each="err: ${#fields.globalErrors()}" th:text="${err}">...</li>
+	</div>
+	
+	</div>
+	<div th:object="${credenziali}">
+		<div th:if="${#fields.hasGlobalErrors()}">
+		 <li th:each="err: ${#fields.globalErrors()}" th:text="${err}">...</li>
+		</div>
+			
+	</div>
+		<p></p>
+		<div class="itemLogin">
+			<label>Nome: </label>
+			<span><input type="text" placeholder="Nome" th:field="${utente.nome}" /></span>
+				<span th:if="${#fields.hasErrors('utente.nome')}" th:errors="*{utente.nome}"></span>
+		</div>
+		<p></p>
+		<div class="itemLogin">
+			<label>Cognome: </label>
+			<span><input type="text" placeholder="Cognome" th:field="${utente.cognome}" /></span>
+			<span th:if="${#fields.hasErrors('utente.cognome')}" th:errors="*{utente.cognome}"></span>
+		</div>
+		<p></p>
+		<div class="itemLogin">
+			<label>Email: </label>
+			<span><input type="text" placeholder="Email" th:field="${utente.email}" /></span>
+			<span th:if="${#fields.hasErrors('utente.email')}" th:errors="*{utente.email}"></span>
+		</div>
+		
+		
+		
+		<p></p>
+		<div class="itemLogin">
+			<label>Username: </label>
+			<span><input type="text" placeholder="Username" th:field="${credenziali.username}" /></span>
+			<span th:if="${#fields.hasErrors('credenziali.username')}" th:errors="*{credenziali.username}"></span>
+		</div>
+		<p></p>
+		<div class="itemLogin">
+			<label>Password: </label>
+			<span><input type="password" placeholder="Password" th:field="${credenziali.password}" /></span>
+			<span th:if="${#fields.hasErrors('credenziali.password')}" th:errors="*{credenziali.password}"></span>
+		</div>
+		
+		<p>
+		<div>
+			<button class="register-button" type="submit">Registra</button>
+		</div>
+		</p>
+		
+		<p>
+			<div class="signup-text">
+				<a th:href="@{'/'}" th:text="'Torna alla HomePage'" ></a>
+			</div>
+		</p>
+		
+	</form>
+	</div>
+</div>
+</div>
+
+</body>
+
+</html>

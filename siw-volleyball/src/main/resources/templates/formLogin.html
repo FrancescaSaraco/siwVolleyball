@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>
+		Login Page
+	</title>
+
+	<link rel="stylesheet" href="/css/stile.css" />
+</head>
+
+<body background="/images/sfondoRosso.jpg" style="background-size: cover; ">
+
+<div class="login-container">
+<div id="loginMenu">
+	<img src="/images/logo1.png" alt="Logo" class="logo">
+<h1 style="font-size: 30px; font-family: 'Arial, Helvetica, sans-serif'; text-align: center;"> Esegui il login </h1>
+<form th:action="@{/login}" method="post"> 
+	<p>
+	<div class="itemLogin">
+		<span> Username: </span>
+		<span> <input name="username" type="text" required /></span>
+	</div>
+	</p>
+	<p>
+	<div class="itemLogin">
+		<span> Password: </span>
+		<span> <input name="password" type="password" required /></span>
+	</div>	
+	</p>
+	<div>
+		<span class="itemLogin" > <button class="login-button" type="submit"> Login </button> </span>
+	</div>	
+	<div class="signup-text">
+		<p >Non hai un account? </p>
+		<a th:href="@{/register}" th:text=" 'Registrati' " ></a>
+	</div>
+</form>
+</div>
+</div>
+</body>
+</html>

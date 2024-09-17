@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+	<html>
+		<head>
+			<title> Nuovo giocatore </title>
+			<link rel="stylesheet" href="/css/stile.css" />
+		</head>
+		<body background="/images/sfondoRosso.jpg" style="background-size: cover;">
+			<div class="login-container">
+			<div id="loginMenu">
+				<img src="/images/logo1.png" alt="Logo" class="logo">
+			<h1 class="custom-titleForm"> Aggiungi un nuovo giocatore </h1>
+				
+				<form th:action="@{'/admin/giocatoriNuovi'}" method="post" th:object="${giocatore}">
+					
+					<div th:if="${#fields.hasGlobalErrors()}">
+						<li th:each="err: ${#fields.globalErrors()}" th:text="${err}">...</li>
+					</div>
+							
+					<p></p>
+					
+					<div class="itemLogin">
+						<span> Nome: <input type="text" th:field="${giocatore.nome}"> </span>
+					</div>
+					<div class="itemLogin">
+						<span> Cognome: <input type="text" th:field="${giocatore.cognome}"> </span>
+					</div>
+					<div class="itemLogin">
+						<span> Data di nascita: <input type="date" th:field="${giocatore.dataDiNascita}"> </span>
+						<span th:if="${#fields.hasErrors('dataDiNascita')}" th:errors="*{dataDiNascita}"></span>
+					</div>
+					<div class="itemLogin">
+						<span> Citta' di nascita': <input type="text" th:field="${giocatore.cittaNascita}"> </span>
+					</div>
+					<div class="itemLogin">
+						<span> Ruolo: <input type="text" th:field="${giocatore.ruolo}"> </span>
+					</div>
+					<div >
+						<span> <button class="button-confirm" type="submit"> Conferma aggiunta giocatore </button> </span>
+					</div>	
+				</form>	
+				</div>
+				</div>		
+		</body>
+	</html>
+	

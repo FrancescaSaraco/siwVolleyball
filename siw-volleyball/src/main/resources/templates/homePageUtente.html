@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>
+	HomePage Utente
+  </title>
+ <link rel="stylesheet" href="/css/style.css" />
+</head>
+
+<body class="homePage">
+	
+		<nav>
+	        <div class="logo">
+	            <img src="/images/logo1.png" alt="Logo del Sito">
+	        </div>
+			<div class="signup-text">
+			<div th:if="${utente}">
+					<a href="/logout">Logout</a>
+					<span  th:text="${utente.username}"></span>
+			</div>
+			<div th:unless="${utente}">
+				<a href="/login">Login</a>
+			</div>
+			</div>
+			</div>
+	    </nav>
+
+	<header>
+		<h1 style="font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif; 
+		font-size: 60px; margin-right: 15%;"> Siw  <div style="font-family: Apple Chancery , cursive, sans-serif; 
+		font-size: 50px; color: black; padding: 16px; margin-top: -7.5%; margin-left: 25%;"> Volleyball </div> </h1>
+	</header>
+	
+	
+	<section class="section">
+	
+	<div class="text">
+	<h2> Squadre presenti nel sistema:</h2>
+	
+	<div th:if="${squadre.isEmpty()}"> Al momento non ci sono squadre registrate!</div>
+	<div th:unless="${squadre.isEmpty()}">
+	<ul>
+	<li th:each="squadra : ${squadre}"
+	 	th:text="'Squadra: ' + ${squadra.nome} + ', anno di fondazione: '+ ${squadra.annoFondazione} + ', indirizzo della sede: ' + ${squadra.indirizzo} +'.'" >
+	</li>
+	</ul>
+	</div>
+	</div>
+	
+	
+	
+	</section>
+	
+	<footer>
+	       <p>&copy; 2024 Tutti i diritti riservati</p>
+		   <p>
+			Sede principale: via Giovanni Battista 24
+		   </p>
+		   <p>
+			Contatti: 
+			<p> Tel - 069103567</p> 
+			<p> mail - siwVolleyball@gmail.com</p>
+		   </p>
+	 </footer>
+	
+</body>
+
+</html>

@@ -1,0 +1,195 @@
+#loginMenu{
+	background-color: #ffffff;
+	   padding: 40px;
+	   border-radius: 20px; /* Arrotonda gli angoli */
+	   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+	   text-align: center;
+	   width: 100%;
+	   max-width: 400px;
+	   top: 15%;
+	   	left: 34%;
+	   	right: 40%;
+	   	width: 490px;
+	   	height: 560px;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f0f0f0;
+}
+
+.login-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+.logo {
+    width: 100px;
+    height: auto;
+    display: block;
+    margin: 0 auto 20px auto;
+}
+
+.itemLogin input {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    font-size: 1em;
+    background-color: rgb(166, 43, 23);
+	color:  #f0f0f0;
+}
+
+.itemForm input {
+	margin-top: auto;
+    width: 100%;
+    padding: 5.5px;
+    border: none;
+    border-radius: 5px;
+    font-size: 1em;
+    background-color: rgb(166, 43, 23);
+	color:  #f0f0f0;
+}
+
+.login-button {
+	margin-top: 30%;
+	align-items: center;
+    width: 100%;
+    padding: 12px;
+    background-color: rgb(166, 43, 23);
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    font-size: 1.2em;
+   /* cursor: pointer;*/
+}
+
+.register-button {
+	align-items: center;
+	width: 50%;
+	margin-top: 10px;
+	background-color: rgb(166, 43, 23);
+	color: #fff;
+	border: none;
+}
+
+.signup-text {
+    margin-top: 20px;
+}
+
+.signup-text a {
+    color:  rgb(166, 43, 23);
+    text-decoration: underline;
+}
+
+.signup-text a:hover {
+    color:darksalmon;
+}
+
+.custom-title {
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    color: rgb(166, 43, 23);
+    font-size: 2.5em; /* Dimensione del testo */
+    text-align: center; /* Centra il titolo */
+}
+
+.custom-titleForm {
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    color:black;
+    font-size: 2em; /* Dimensione del testo */
+    text-align: center; /* Centra il titolo */
+	margin-top: -5.9%;
+}
+
+.button {
+	margin-top: 30%;
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: rgb(166, 43, 23);
+	color:white;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 16px;
+	align-items: center;
+	font-family: Arial, Helvetica;
+	font-size: 1.2em;
+}
+
+.button-confirm {
+	
+	    background-color: rgb(166, 43, 23);
+		color: white;
+		display: inline-block;
+		align-items: center;
+		padding: 5px;
+		/*color: #fff;*/
+		border: none;
+		border-radius: 5px;
+		font-size: 16px;
+		font-size: 1.2em;
+		margin-top: 5%;
+		transition: background-color 0.3s ease;
+}
+
+.button-confirm:hover {
+	background-color:darksalmon;
+}
+
+.select-wrapper {
+    position: relative;
+    width: 300px;
+}
+
+.styled-select {
+	margin-left: 15%;
+	margin-top: 8%;
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    border-radius: 5px;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background-color: rgb(166, 43, 23);
+	color:white;
+    cursor: pointer;
+}
+
+
+
+
+/*.login-button {
+    width: 100%;
+    padding: 12px;
+    background-color: #ff4d4d;
+    color: #fff;
+    border: none;
+    border-radius: 10px;
+    font-size: 1.2em;
+    cursor: pointer;
+}*/
+
+
+
+/*.input-box input:focus {
+    outline: none;
+    border: 2px solid #ff6666;
+}*/
+
+
+
+
+/* #loginMenu{
+  	position: fixed;	
+	top: 15%;
+	left: 34%;
+	right: 40%;
+	width: 490px;
+	height: 550px;
+	background-color: white;
+}*/

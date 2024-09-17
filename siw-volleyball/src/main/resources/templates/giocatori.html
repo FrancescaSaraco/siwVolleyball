@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title> Giocatori </title>
+		<link href="styles.css" rel="stylesheet">
+	</head>
+	<body>
+		<nav>
+			
+		</nav>
+		<header>
+			
+		</header>
+		<section>
+			<h1> Giocatori: </h1>
+			<div th:if="${giocatori.isEmpty()}"> 
+				<p>
+					Non c'e' nessun giocatore nel sistema
+				</p>
+				<p>
+					<a href="/formNewGiocatore"> Aggiungine uno! </a> <!-- nuovo e' un valore di URL che ti riporta alla form nuovo giocatore' -->
+				</p>
+			</div>
+			<ul>
+				<li th:each="giocatore : ${giocatori}">
+					<a th:href="@{'/giocatori ' + '/' + ${giocatore.id}}"
+					 th:text="${giocatore.nome} + ' ' + ${giocatore.cognome} + ', ' + ' [' + ${giocatore.ruolo} + '] ' ">
+						Francesca Saraco, [martello]
+					</a>
+				</li>
+			</ul>
+		</section>
+		<footer>
+			
+		</footer>
+	</body>
+</html>

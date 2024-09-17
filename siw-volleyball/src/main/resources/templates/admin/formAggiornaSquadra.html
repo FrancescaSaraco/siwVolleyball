@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<title>Aggiorna Squadra</title>
+   <link rel="stylesheet" href="/css/stile.css" />
+<body background="/images/sfondoRosso.jpg" style="background-size: cover;">
+	<div class="login-container">
+	<div id="loginMenu">
+		<img src="/images/logo1.png" alt="Logo" class="logo">	
+	<h1 class="custom-titleForm">
+	<a th:text="${squadra.nome} + '(' + ${squadra.indirizzo} +')'"></a>	
+	</h1>
+	
+	<h2> Modifica squadra: </h2>
+	
+	<form th:action="@{'/admin/modificaSquadra/' + ${squadra.id}}" method="post">  
+		
+		<div th:object="${squadra}">
+		
+		<div class="itemForm">
+			<span> Modifica nome:  <input type="text" th:field="${squadra.nome}"/>  </span>
+		</div>
+		<div class="itemForm">
+			<span> Modifica data di fondazione: (data precedentemente inserita <a th:text="' ' + ${squadra.annoFondazione} + ') '"></a> <input type="date" th:field="${squadra.annoFondazione}"/> </span>
+		</div>
+		<div class="itemForm">
+			<span> Modifica indirizzo: <input type="text" th:field="${squadra.indirizzo}"/> </span>
+		</div>
+		
+		</div>
+		<!-- fino a qui è la form per aggiornare la squadra da qui in poi serve per aggiornare il presidente -->
+		<h3> Modifica o aggiungi il presidente: </h3>
+		<div> 
+			<div th:if="${squadra.getPresidente() == NULL}">
+				non hai ancora inserito un presidente, immettine uno!
+			</div>
+			<strong>
+				<div th:unless="${squadra.getPresidente() == NULL}"> 
+				presidente attuale: <a th:text="' ' + ${squadra.presidente.utente.getNome()} + ' ' + ${squadra.presidente.utente.getCognome()} + ' '" ></a>
+			</div>
+			</strong>
+			
+			<div class="select-wrapper">
+			<select name="codiceFiscale" class="styled-select"> 
+				<option value=""> seleziona un nuovo presidente </option>
+					<span th:each="presidente : ${rimasti}">
+				<option th:value="*{presidente.codiceFiscale}"> 
+				<span th:text="*{presidente.utente.nome} + ' ' + *{presidente.utente.cognome}"> Nome Presidente: </span> 
+					</option>
+					</span>
+					</select>
+			</div>
+		</div>
+			
+		
+		<div >
+			<span> <button class="button-confirm" type="submit"> Conferma le modifiche </button> </span>
+		</div>
+		
+	</form>
+	</div>
+	</div>
+	</body>
+</html>
+	

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title> Nuova squadra </title>
+		<link rel="stylesheet" href="/css/stile.css" />
+	</head>
+	<body background="/images/sfondoRosso.jpg" style="background-size: cover;">	
+		<div class="login-container">
+		<div id="loginMenu">
+			<img src="/images/logo1.png" alt="Logo" class="logo">	
+		<h1 class="custom-titleForm"> Inserisci una nuova squadra: </h1>
+			<form th:action="@{/admin/squadre}" method="POST" > 
+			<div th:object="${squadra}">			
+				
+				<div th:if="${#fields.hasGlobalErrors()}">
+					<li th:each="err: ${#fields.globalErrors()}" th:text="${err}">...</li>
+				</div>
+				
+				<div class="itemLogin">
+					Nome: <span> <input required type="text" th:field="${squadra.nome}" /> </span>
+				</div>
+				<div class="itemLogin">
+					Data di fondazione: <span> <input required type="date" th:field="${squadra.annoFondazione}" /> </span>
+				</div>
+				<div class="itemLogin">
+					Indirizzo sede: <span> <input required type="text" th:field="${squadra.indirizzo}" /> </span>
+				</div>
+				
+			</div>
+				<div class="select-wrapper">
+					 <select name="codiceFiscale" class="styled-select">
+						<option value=""> seleziona un presidente </option>
+						<span th:each="presidente : ${presidenti}">
+							<option th:value="*{presidente.codiceFiscale}"> 
+								<span th:text="*{presidente.utente.nome} + ' ' + *{presidente.utente.cognome}"> Nome Presidente: </span> 
+							</option>
+						</span>
+					</select>
+				</div>	
+				<div >
+					<span> <button class="button-confirm" type="submit"> Conferma </button> </span>
+				</div>
+			</form>
+		</div>					
+		</div>		
+	</body>
+</html>

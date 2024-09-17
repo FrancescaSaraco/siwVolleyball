@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title> Presidenti</title>
+		<link href="styles.css" rel="stylesheet">
+	</head>
+	<body>
+		<nav>
+			
+		</nav>
+		<header>
+			
+		</header>
+		<section>
+			<h1> Presidenti: </h1>
+			<div th:if="${presidenti.isEmpty()}"> 
+				<p>
+					Non c'e' nessun presidente nel sistema
+				</p>
+				<p>
+					<a href="/formNewPresidente"> Aggiungine uno! </a> <!-- nuovo e' un valore di URL che ti riporta alla form nuovo giocatore' -->
+				</p>
+			</div>
+			<ul>
+				<li th:each="presidente : ${presidenti}">
+					<a th:href="@{'/presidenti ' + '/' + ${presidente.id}}"
+					 th:text="${presidente.nome} + ' ' + ${presidente.cognome} + ', ' + ' [' + ${presidente.codiceFiscale} + '] ' ">
+						Franco Russo, [FRH13009ST120]
+					</a>
+				</li>
+			</ul>
+		</section>
+		<footer>
+			
+		</footer>
+	</body>
+</html>

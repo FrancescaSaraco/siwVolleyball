@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title> Nuovo tesseramento </title>
+		 <link rel="stylesheet" href="/css/stile.css" />
+	</head>
+	<body background="/images/sfondoRosso.jpg" style="background-size: cover;">
+		<div class="login-container">
+		<div id="loginMenu">
+			<img src="/images/logo1.png" alt="Logo" class="logo">	
+		<h1 class="custom-titleForm"> Aggiungi un nuovo tesseramento nella squadra <a th:text="${tesseramento.squadra.nome}"> </a> </h1>
+			
+			<form th:action="@{'/presidente/nuovoTesseramento/' + ${tesseramento.squadra.id}}" method="POST">
+				<div th:object="${tesseramento}">
+				<div class="itemForm">
+					Data di inizio tesseramento: <span> <input required type="date" th:field="${tesseramento.inizioTesseramento}" /> </span>
+				</div>
+				<div class="itemForm">
+					Data di fine tesseramento: <span> <input required type="date" th:field="${tesseramento.fineTesseramento}" /> </span>
+				</div>
+				</div>
+				<div class="select-wrapper">
+					<select name="giocatore" class="styled-select"> 
+							<option value=""> seleziona un giocatore </option>
+							 <span th:each="giocatore1 : ${disponibili}">
+							<option th:value="*{giocatore1.id}"> 
+							 <span th:text="*{giocatore1.nome} + ' ' + *{giocatore1.cognome}"> Nome Giocatore: </span> 
+							 </option>
+							 </span>
+							</select>
+				</div>
+				<div class="select-wrapper">
+					<select name="idSquadra" class="styled-select">
+							<option th:value="*{tesseramento.squadra.id}">
+								<span th:text="*{squadra.nome}"> Nome squadra </span>
+							</option>
+								</select>
+				</div>
+				<div>
+					<span> <button class="button-confirm" type="submit"> Conferma tesseramento </button> </span>
+				</div>
+				<div class="signup-text">
+					<a th:href="@{'/'}" th:text="'Torna alla HomePage'" ></a>
+				</div>
+			</form>	
+		</div>	
+		</div>
+	</body>
+</html>
